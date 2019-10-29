@@ -29,11 +29,14 @@ describe('KnormFieldNameToColumnName', () => {
     let User;
 
     before(() => {
-      ({ Model } = knorm().use(
-        knormFieldNameToColumnName({
-          fieldNameToColumnName: ({ name }) => name.toUpperCase()
-        })
-      ));
+      ({ Model } = knorm().use(knormFieldNameToColumnName()));
+      Model.options = {
+        plugins: {
+          '@knorm/field-name-to-column-name': {
+            fieldNameToColumnName: ({ name }) => name.toUpperCase()
+          }
+        }
+      };
     });
 
     beforeEach(() => {
@@ -45,9 +48,20 @@ describe('KnormFieldNameToColumnName', () => {
       expect(User.fields.id, 'to satisfy', { name: 'id', column: 'ID' });
     });
 
-    it("does not override a field's column name", () => {
-      User.fields = { id: { type: 'integer', name: 'id', column: '_id' } };
-      expect(User.fields.id, 'to satisfy', { name: 'id', column: '_id' });
+    describe('when the field has a column already', () => {
+      it('does not overwrite it', () => {
+        User.fields = { id: { type: 'integer', name: 'id', column: '_id' } };
+        expect(User.fields.id, 'to satisfy', { column: '_id' });
+      });
+    });
+
+    describe('for virtual fields', () => {
+      it('does not set a column name ', () => {
+        User.fields = { id: { type: 'integer', name: 'id', virtual: true } };
+        expect(User.fields.id, 'to satisfy', {
+          column: expect.it('to be undefined')
+        });
+      });
     });
   });
 });
