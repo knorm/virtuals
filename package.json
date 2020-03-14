@@ -1,7 +1,7 @@
 {
-  "name": "@knorm/virtuals",
-  "version": "1.0.0",
-  "description": "Virtuals plugin for @knorm/knorm",
+  "name": "@knorm/field-name-to-column-name",
+  "version": "0.0.1",
+  "description": "Plugin for @knorm/knorm that hlps generate column names from field names",
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit --recursive",
@@ -16,7 +16,7 @@
     "@knorm/knorm": "^2.0.0"
   },
   "devDependencies": {
-    "@knorm/knorm": "github:knorm/knorm#v2",
+    "@knorm/knorm": "github:knorm/knorm#refactor/virtual-to-field",
     "@semantic-release/changelog": "3.0.2",
     "@semantic-release/git": "7.0.8",
     "@semantic-release/github": "5.2.10",
@@ -37,15 +37,18 @@
   "keywords": [
     "knorm",
     "plugin",
-    "virtuals"
+    "fields",
+    "field-names",
+    "columns",
+    "column-names"
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/knorm/virtuals.git"
+    "url": "git+ssh://git@github.com/knorm/field-name-to-column-name.git"
   },
   "bugs": {
-    "url": "https://github.com/knorm/virtuals/issues"
+    "url": "https://github.com/knorm/field-name-to-column-name/issues"
   },
-  "homepage": "https://github.com/knorm/virtuals#readme",
+  "homepage": "https://github.com/knorm/field-name-to-column-name#readme",
   "dependencies": {}
 }

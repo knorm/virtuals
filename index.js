@@ -1,6 +1,7 @@
-const KnormVirtuals = require('./lib/KnormVirtuals');
-const knormVirtuals = config => new KnormVirtuals(config);
+const KnormFieldNameToColumnName = require('./lib/KnormFieldNameToColumnName');
+const knormFieldNameToColumnName = config =>
+  new KnormFieldNameToColumnName(config);
 
-knormVirtuals.KnormVirtuals = KnormVirtuals;
+knormFieldNameToColumnName.KnormFieldNameToColumnName = KnormFieldNameToColumnName;
 
-module.exports = knormVirtuals;
+module.exports = knormFieldNameToColumnName;
