@@ -13,7 +13,7 @@
   "author": "Joel Mukuthu <joelmukuthu@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@knorm/knorm": "^2.0.0"
+    "@knorm/knorm": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
     "@knorm/knorm": "github:knorm/knorm#v2",
